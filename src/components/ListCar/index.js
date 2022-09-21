@@ -166,29 +166,29 @@ export default function ListCar({ data }) {
 
 
   const [visibleModal, setVisibleModal] = useState(false);
-  const [image, setImage] = useState(data.attributes?.imgMain.data?.attributes?.url);
+  const [image, setImage] = useState(data.imgMain);
 
-  const imgLeft = data.attributes?.imgLeft.data?.attributes?.url;
-  const imgRight = data.attributes?.imgRight.data?.attributes?.url;
+  const imgLeft = data.imgLeft;
+  const imgRight = data.imgRight;
 
   function btnLeft() {
-    if (image === data.attributes?.imgMain.data?.attributes?.url) {
+    if (image === dataimgMain) {
       setImage(imgLeft);
     } else if (image === imgLeft) {
       setImage(imgRight);
     }
     else {
-      setImage(data.attributes?.imgMain.data?.attributes?.url);
+      setImage(data.imgMain);
     }
   };
   function btnRight() {
-    if (image === data.attributes?.imgMain.data?.attributes?.url) {
+    if (image === data.imgMain) {
       setImage(imgRight);
     } else if (image === imgRight) {
       setImage(imgLeft);
     }
     else {
-      setImage(data.attributes?.imgMain.data?.attributes?.url);
+      setImage(data.imgMain);
     }
   }
 
@@ -201,7 +201,8 @@ export default function ListCar({ data }) {
         <ContainerImg>
          
           <Img animation="flipInY" 
-            source={{ uri: `${data.imgMain}` }}>
+            // source={{ uri: `${data.imgMain}` }}
+            source={{uri:'https://cdn.motor1.com/images/mgl/PKw42/s3/bmw-3er-touring-2019-luxury-line.jpg'}}>
           </Img>
 
           <ContainerTxt>
@@ -228,7 +229,7 @@ export default function ListCar({ data }) {
             <ButtonText>Fechar</ButtonText>
           </ButtonBack>
 
-          <Background source={{ uri: `${data.imgMain}` }}>
+          <Background source={{ uri: `${image}` }}>
             <ContainerButtons>
               <ButtonArrows onPress={btnLeft}><Icon name="angle-left" size={45} color='#FFF' /></ButtonArrows>
               <ButtonArrows onPress={btnRight}><Icon name="angle-right" size={45} color='#fff' /></ButtonArrows>

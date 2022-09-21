@@ -48,7 +48,7 @@
 
 
 import React, {useState, useEffect} from 'react';
-
+import { View, ActivityIndicator } from 'react-native';
 import ListCar from '../../components/ListCar';
 import api from '../../services/api';
 import { useRoute } from '@react-navigation/native';
@@ -72,6 +72,7 @@ export default function Cars() {
     //   ])
 
     const [cars, setCars] = useState([]);
+    const [loading, setLoading] = useState(true);
 
       useEffect(()=>{
       async function loadData(){
@@ -81,11 +82,19 @@ export default function Cars() {
         //  console.log(route.params?.id)
         //  console.log(response.data)
         setCars(response.data);
+        setLoading(false);
       }
 
       loadData();
 
   },[])
+  if (loading) {
+    return (
+    <View style={{backgroundColor:'#25221F', alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+        <ActivityIndicator color='#FFF' size={45} />
+      </View>
+    )
+  } else {
 
 
  return (
@@ -95,4 +104,5 @@ export default function Cars() {
       renderItem={({item})=><ListCar data={item} />}/>
    </Container>
   );
+}
 }
