@@ -15,11 +15,32 @@ const statusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 0 : 
 export default function Brands() {
 
     const [brands, setBrands] = useState([]);
+    const data = [];
 
     useEffect(() => {
          async function loadBrands(){
-            const response = await api.get('api/brands?populate=icon');
-            setBrands(response.data.data);
+            // const response = await api.get('api/brands?populate=icon');
+            const response = await api.get('/brands')
+            // setBrands(response.data.data);
+            // console.log(response.data)
+            let teste =[]
+            Object.keys(response.data).map((key) => {
+                teste.push({
+                  index: key,
+                })
+              })
+            // console.log(teste)
+            for (var i = 0; i < teste.length; i++) {
+
+                let index = teste[i].index;
+                let dataBrands = response.data[index];
+            
+                dataBrands.id = index;
+                data.push(dataBrands);
+        
+            }
+           setBrands(data);
+        //    console.log(brands);
          }
 
          loadBrands();
@@ -42,12 +63,20 @@ export default function Brands() {
             </Summary>
 
             <TitleBrand>Marcas</TitleBrand>
+            {/* <TitleBrand>{brands[1].name}</TitleBrand> */}
                             
-       <List
+       {/* <List
        data={brands}
        showsHorizontalScrollIndicator={false}
        horizontal={true}
        keyExtractor={(item) => String(item.id)} 
+       renderItem={({item})=><ListBrands data={item}/>}
+       /> */}
+      <List
+       data={brands}
+       showsHorizontalScrollIndicator={false}
+       horizontal={true}
+       keyExtractor={(item) => item.name} 
        renderItem={({item})=><ListBrands data={item}/>}
        />
         </Container>
