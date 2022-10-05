@@ -2,9 +2,14 @@ import styled from 'styled-components/native';
 
 export const Container = styled.SafeAreaView`
 flex: 1;
-padding-top: ${(props)=>props.teste};
+padding-top: ${(props)=>props.paddingStatusBar};
 `;
-
+export const ContainerLoading = styled.View`
+flex: 1;
+align-items: center;
+justify-content: center;
+background-color: #25221F;
+`;
 export const Background = styled.ImageBackground.attrs({
   resizeMode:'cover'
 })`

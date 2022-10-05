@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 export const Container = styled.SafeAreaView`
 flex: 1;
-padding-top: ${(props) => props.teste};
+padding-top: ${(props) => props.paddingStatusBar};
 `;
 
 export const ButtonCar = styled.TouchableOpacity`
@@ -103,7 +103,7 @@ flex-direction: row;
 text-align: center;
 justify-content: center;
 border-width:2px;
-border-color: #FFF;
+border-color: #6d4b04;
 width: 70% ;
 margin: 0 15% 2%;
 `;

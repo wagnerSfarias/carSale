@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { StatusBar, View, ActivityIndicator } from 'react-native';
+import { StatusBar, ActivityIndicator } from 'react-native';
 
 import ListBrands from '../../components/ListBrands';
 
 import api from '../../services/api';
 
 import * as Animatable from 'react-native-animatable';
-import {Container, ContainerLogo, Logo, Summary, SummaryText, TitleBrand, List} from './styles';
+import { Container, ContainerLogo, Logo, Summary, SummaryText, TitleBrand, List } from './styles';
+import { ContainerLoading } from '../Home/styles';
 
 const Summarytxt = Animatable.createAnimatableComponent(SummaryText);
 
@@ -14,82 +15,60 @@ const statusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 0 : 
 
 export default function Brands() {
 
-    const [brands, setBrands] = useState([]);
-    const [loading, setLoading] = useState(true);
+  const [brands, setBrands] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    const data = [];
 
-    useEffect(() => {
-         async function loadBrands(){
+  useEffect(() => {
+    async function loadBrands() {
 
-            const response = await api.get('/brands')
-        
-            let teste =[]
-            Object.keys(response.data).map((key) => {
-                teste.push({
-                  index: key,
-                })
-              })
+      const response = await api.get('/brands')
+  
+   
+      setBrands(response.data);
 
-            for (var i = 0; i < teste.length; i++) {
 
-                let index = teste[i].index;
-                let dataBrands = response.data[index];
-            
-                dataBrands.id = index;
-                data.push(dataBrands);
-        
-            }
-           setBrands(data);
-           setLoading(false);
-         }
+      setLoading(false);
+    }
 
-         loadBrands();
-    }, []);
+    loadBrands();
+  }, []);
 
-    if (loading) {
-        return (
-        <View style={{backgroundColor:'#25221F', alignItems: 'center', justifyContent: 'center', flex: 1 }}>
-            <ActivityIndicator color='#FFF' size={45} />
-          </View>
-        )
-      } else {
-    
+  if (loading) {
+    return (
+      <ContainerLoading>
+        <ActivityIndicator color='#FFF' size={45} />
+      </ContainerLoading>
+    )
+  } else {
+
 
     return (
-        <Container teste={`${statusBarHeight + 'px'}`}>
-            <StatusBar backgroundColor="transparent" translucent={true} barStyle="light-content" />
+      <Container paddingStatusBar={`${statusBarHeight + 'px'}`}>
+        <StatusBar backgroundColor="transparent" translucent={true} barStyle="light-content" />
 
-            <ContainerLogo>
-                 <Logo source={require('../../assets/Vehicle-Sale-bro.png')} />
-            </ContainerLogo>
+        <ContainerLogo>
+          <Logo source={require('../../assets/Vehicle-Sale-bro.png')} />
+        </ContainerLogo>
 
-            <Summary>
-                <Summarytxt animation={'fadeInUp'} delay={1000} easing={'ease-out'}>
-                    A mais de 20 anos no mercado
-                    nos somos especialistas na venda de carros novos
-                    e seminovos, confira nosso estoque.  
-                 </Summarytxt>
-            </Summary>
+        <Summary>
+          <Summarytxt animation={'fadeInUp'} delay={1000} easing={'ease-out'}>
+            A mais de 20 anos no mercado
+            nós somos especialistas em vendas de carros novos
+            e seminovos, confira nosso estoque.
+          </Summarytxt>
+        </Summary>
 
-            <TitleBrand>Marcas</TitleBrand>
+        <TitleBrand>Marcas</TitleBrand>
 
-                            
-       {/* <List
-       data={brands}
-       showsHorizontalScrollIndicator={false}
-       horizontal={true}
-       keyExtractor={(item) => String(item.id)} 
-       renderItem={({item})=><ListBrands data={item}/>}
-       /> */}
-      <List
-       data={brands}
-       showsHorizontalScrollIndicator={false}
-       horizontal={true}
-       keyExtractor={(item) => item.name} 
-       renderItem={({item})=><ListBrands data={item}/>}
-       />
-        </Container>
+        <List
+          data={brands}
+          showsHorizontalScrollIndicator={false}
+          horizontal={true}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => <ListBrands data={item} />}
+        />
+      </Container>
     );
-}
+  }
 }

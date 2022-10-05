@@ -41,7 +41,6 @@ export default function ListCar({ data }) {
 
   function btnLeft() {
     if (image === data.imgMain) {
-      console.log(imgRight)
       setImage(imgLeft);
     } else if (image === imgLeft) {
       setImage(imgRight);
@@ -62,7 +61,7 @@ export default function ListCar({ data }) {
   }
 
   return (
-    <Container teste={`${statusBarHeight + 'px'}`}>
+    <Container paddingStatusBar={`${statusBarHeight + 'px'}`}>
 
       <StatusBar backgroundColor="transparent" translucent={true} barStyle="light-content" />
 
@@ -70,9 +69,7 @@ export default function ListCar({ data }) {
         <ContainerImg>
          
           <Img animation="flipInY" 
-            source={{ uri: `${data.imgMain}` }}
-            // source={{uri:'https://cdn.motor1.com/images/mgl/PKw42/s3/bmw-3er-touring-2019-luxury-line.jpg'}}
-            >
+            source={{ uri: `${data.imgMain}` }}>
           </Img>
 
           <ContainerTxt>
@@ -102,7 +99,7 @@ export default function ListCar({ data }) {
           <Background source={{ uri: `${image}` }}>
             <ContainerButtons>
               <ButtonArrows onPress={btnLeft}><Icon name="angle-left" size={45} color='#FFF' /></ButtonArrows>
-              <ButtonArrows onPress={btnRight}><Icon name="angle-right" size={45} color='#fff' /></ButtonArrows>
+              <ButtonArrows onPress={btnRight}><Icon name="angle-right" size={45} color='#FFF' /></ButtonArrows>
             </ContainerButtons>
           </Background>
 
@@ -117,7 +114,7 @@ export default function ListCar({ data }) {
           </ContainerDetail>
 
           <ContainerDetail>
-            <DetailText>Câmbio {data.transmission}</DetailText>
+            <DetailText>Câmbio: {data.transmission}</DetailText>
           </ContainerDetail>
 
           <ContainerDetail>
