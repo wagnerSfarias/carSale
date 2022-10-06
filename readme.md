@@ -7,13 +7,34 @@ Mais um aplicativo finalizado baseado em uma concessionaria essa aplicação per
 Durante o desenvolvimento optei por 
 criar uma API que está hospedada no heroku.
 
-[API concessionaria](https://api-salecar.herokuapp.com/brands)
-
 ## Layout 
 
 ![apresentacao](https://github.com/wagnerSfarias/carSale/blob/main/src/assets/ezgif.com-gif-maker.gif?raw=true=300x534) 
 
-## Tecnologias utilizadas
+## Detalhes API 📖
+
+[API concessionaria](https://api-salecar.herokuapp.com)
+
+Para buscar todas as marcas.
+
+
+ ### Exemplo:
+ https://api-salecar.herokuapp.com/brands
+
+
+ [Marcas - Clique aqui](https://api-salecar.herokuapp.com/brands) 
+
+ <hr>
+
+Para buscar os carros disponiveis é necessario passar como parâmetro query o ID da marca.
+
+ ### Exemplo:
+
+ https://api-salecar.herokuapp.com/cars?id=IDMARCA
+
+[Carros - Clique aqui](https://api-salecar.herokuapp.com/cars?id=2)
+
+## Tecnologias utilizadas 🖥️
 - React Native
 - Axios
 - React Navigation / Stack
