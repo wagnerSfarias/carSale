@@ -7,12 +7,11 @@ Mais um aplicativo finalizado baseado em uma concessionaria essa aplicação per
 Durante o desenvolvimento optei por 
 criar uma API que está hospedada no heroku.
 
-[API concessionaria](https://api-salecar.herokuapp.com/)
+[API concessionaria](https://api-salecar.herokuapp.com/brands)
 
 ## Layout 
 
-![apresentacao](https://github.com/wagnerSfarias/converterCurrency/blob/main/src/assetsezgif.com-gif-maker.gif?raw=true=300x534) 
-
+![apresentacao](https://github.com/wagnerSfarias/carSale/blob/main/src/assets/ezgif.com-gif-maker.gif?raw=true=300x534) 
 
 ## Tecnologias utilizadas
 - React Native
