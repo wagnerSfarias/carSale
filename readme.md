@@ -26,7 +26,7 @@ Para buscar todas as marcas.
 
  <hr>
 
-Para buscar os carros disponiveis é necessario passar como parâmetro query o ID da marca.
+Para buscar os carros disponíveis é necessario passar como parâmetro query o ID da marca.
 
  ### Exemplo:
 
