@@ -19,7 +19,7 @@ Para buscar todas as marcas.
 
 
  ### Exemplo:
- https://https://api-cars-1mxhbzjad-wagnersfarias.vercel.app/brands
+ https://api-cars-1mxhbzjad-wagnersfarias.vercel.app/brands
 
 
  [Marcas - Clique aqui](https://api-cars-1mxhbzjad-wagnersfarias.vercel.app/brands) 
