@@ -5,7 +5,7 @@
 Mais um aplicativo finalizado baseado em uma concessionaria essa aplicação permite visualizar os carros disponíveis e seus detalhes, os carros estão separados por marcas que facilita a procura.
 
 Durante o desenvolvimento optei por 
-criar uma API que está hospedada no heroku.
+criar uma API que está hospedada no vercel.
 
 ## Layout 
 
@@ -13,16 +13,16 @@ criar uma API que está hospedada no heroku.
 
 ## Detalhes API 📖
 
-[API concessionaria](https://api-salecar.herokuapp.com)
+[API concessionaria](https://api-cars-1mxhbzjad-wagnersfarias.vercel.app)
 
 Para buscar todas as marcas.
 
 
  ### Exemplo:
- https://api-salecar.herokuapp.com/brands
+ https://https://api-cars-1mxhbzjad-wagnersfarias.vercel.app/brands
 
 
- [Marcas - Clique aqui](https://api-salecar.herokuapp.com/brands) 
+ [Marcas - Clique aqui](https://api-cars-1mxhbzjad-wagnersfarias.vercel.app/brands) 
 
  <hr>
 
@@ -30,9 +30,9 @@ Para buscar os carros disponíveis é necessario passar como parâmetro query o 
 
  ### Exemplo:
 
- https://api-salecar.herokuapp.com/cars?id=IDMARCA
+https://api-cars-1mxhbzjad-wagnersfarias.vercel.app/cars?id=IDMARCA
 
-[Carros - Clique aqui](https://api-salecar.herokuapp.com/cars?id=2)
+[Carros - Clique aqui](https://api-cars-1mxhbzjad-wagnersfarias.vercel.app/cars?id=2)
 
 ## Tecnologias utilizadas 🖥️
 - React Native
@@ -41,3 +41,4 @@ Para buscar os carros disponíveis é necessario passar como parâmetro query o 
 - React Native Vector Icons
 - Styled Components
 - React Native Animatable 
+- NodeJS / Express
